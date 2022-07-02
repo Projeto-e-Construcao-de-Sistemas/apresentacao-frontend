@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [logado, setLogado] = useState(true);
+
+  const deslogar = () => {
+    setLogado(false);
+  };
+
+  const logar = () => {
+    setLogado(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>
+        {logado === true && (
+          <div>
+            <p>Esta logado</p>
+            <button onClick={deslogar}>Deslogar</button>
+          </div>
+        )}
+      </p>
+
+      <p>
+        {logado === false && (
+          <div>
+            <p>Não está logado</p>
+            <button onClick={logar}>Logar</button>
+          </div>
+        )}
+      </p>
     </div>
   );
 }
